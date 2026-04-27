@@ -38,20 +38,20 @@ body {
   background: var(--white);
   color: var(--text-primary);
   overflow-x: hidden;
-  cursor: crosshair;
+  cursor: default;
 }
 
-/* CURSOR — thin horizontal bar, professional underline style */
-.cursor-bar {
-  position: fixed; pointer-events: none; z-index: 9999;
-  height: 2px; width: 0;
-  background: var(--indigo);
-  transform: translate(-50%, 12px);
-  border-radius: 1px;
-  opacity: 0;
-  transition: width 0.25s var(--t), opacity 0.2s, background 0.2s;
+/* SMOOTH HOVER TRANSITIONS */
+a { cursor: pointer; }
+.nav-links a { display: inline-block; transition: color 0.25s ease, transform 0.25s ease; }
+.nav-links a:hover { transform: translateY(-2px); }
+.btn-fill, .btn-ghost, .contact-chip, .fiverr-btn {
+  transition: all 0.3s cubic-bezier(0.4,0,0.2,1) !important;
 }
-.cursor-bar.on { width: 48px; opacity: 0.5; }
+.skill-card { transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.35s ease !important; }
+.project-item { transition: background 0.28s ease !important; }
+.service-card { transition: all 0.3s cubic-bezier(0.4,0,0.2,1) !important; }
+.stat-box { transition: transform 0.3s ease, box-shadow 0.3s ease !important; }
 
 /* NAV */
 nav {
@@ -87,7 +87,7 @@ nav {
 /* HERO */
 .hero {
   min-height: 100vh; display: flex; align-items: center;
-  padding: 8rem 5rem 5rem; position: relative; overflow: hidden;
+  padding: 7rem 5rem 4rem; position: relative; overflow: hidden;
   background: var(--white);
 }
 .hero-stripe {
@@ -148,23 +148,23 @@ nav {
 .btn-ghost:hover { border-color: var(--indigo); color: var(--indigo); transform: translateY(-2px); }
 
 .hero-stats {
-  position: absolute; right: 5rem; top: 50%; transform: translateY(-50%);
-  z-index: 2; display: flex; flex-direction: column; gap: 1.2rem;
+  position: absolute; right: 4rem; top: 50%; transform: translateY(-50%);
+  z-index: 2; display: flex; flex-direction: column; gap: 1rem;
 }
 .stat-box {
-  background: var(--white); border: 1px solid var(--border);
-  border-radius: 6px; padding: 1.3rem 1.7rem; text-align: center;
-  min-width: 132px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+  background: var(--white); border: 1.5px solid var(--border);
+  border-radius: 8px; padding: 1.6rem 2.2rem; text-align: center;
+  min-width: 160px;
+  box-shadow: 0 4px 28px rgba(0,0,0,0.07);
   transition: transform var(--t), box-shadow var(--t);
 }
-.stat-box:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(59,79,224,0.12); }
+.stat-box:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(59,79,224,0.15); }
 .stat-num {
-  font-family: 'Fraunces', serif; font-size: 2.2rem; font-weight: 600;
-  color: var(--indigo); line-height: 1; margin-bottom: 0.3rem;
+  font-family: 'Fraunces', serif; font-size: 3rem; font-weight: 600;
+  color: var(--indigo); line-height: 1; margin-bottom: 0.4rem;
 }
 .stat-label {
-  font-size: 0.68rem; font-weight: 500;
+  font-size: 0.72rem; font-weight: 600;
   letter-spacing: 0.09em; text-transform: uppercase; color: var(--text-muted);
 }
 
@@ -195,12 +195,12 @@ section { padding: 6rem 5rem; }
 #skills { background: var(--off-white); }
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.4rem;
 }
 .skill-card {
   background: var(--white); border: 1.5px solid var(--border);
-  border-radius: 8px; padding: 2.2rem 2rem;
+  border-radius: 8px; padding: 1.8rem 1.8rem;
   position: relative; overflow: hidden;
   transition: border-color var(--t), transform var(--t), box-shadow var(--t);
   cursor: default;
@@ -338,7 +338,7 @@ section { padding: 6rem 5rem; }
 /* SERVICES */
 #services { background: var(--white); }
 .services-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.4rem;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem;
 }
 .service-card {
   border: 1.5px solid var(--border); border-radius: 8px;
@@ -410,8 +410,6 @@ footer p { font-size: 0.75rem; color: var(--text-muted); }
 </head>
 <body>
 
-<div class="cursor-bar" id="cursorBar"></div>
-
 <nav>
   <div class="nav-logo">Tanish <span>Sethi</span></div>
   <div class="nav-links">
@@ -437,9 +435,9 @@ footer p { font-size: 0.75rem; color: var(--text-muted); }
     </div>
   </div>
   <div class="hero-stats">
-    <div class="stat-box"><div class="stat-num">1</div><div class="stat-label">Tableau Cert.</div></div>
-    <div class="stat-box"><div class="stat-num">5+</div><div class="stat-label">Tools Mastered</div></div>
-    <div class="stat-box"><div class="stat-num">CS</div><div class="stat-label">Graduate Degree</div></div>
+    <div class="stat-box"><div class="stat-num">3+</div><div class="stat-label">Live Projects</div></div>
+    <div class="stat-box"><div class="stat-num">6+</div><div class="stat-label">Analytics Tools</div></div>
+    <div class="stat-box"><div class="stat-num">24h</div><div class="stat-label">Response Time</div></div>
   </div>
 </section>
 
@@ -705,16 +703,6 @@ footer p { font-size: 0.75rem; color: var(--text-muted); }
 </footer>
 
 <script>
-const bar = document.getElementById('cursorBar');
-document.addEventListener('mousemove', e => {
-  bar.style.left = e.clientX + 'px';
-  bar.style.top = e.clientY + 'px';
-});
-document.querySelectorAll('a, .skill-card, .project-item, .service-card, .tool-row, button').forEach(el => {
-  el.addEventListener('mouseenter', () => bar.classList.add('on'));
-  el.addEventListener('mouseleave', () => bar.classList.remove('on'));
-});
-
 const obs = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
     if (entry.isIntersecting) {
